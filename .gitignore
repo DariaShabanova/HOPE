@@ -39,3 +39,10 @@
 
 # debug information files
 *.dwo
+
+# Python
+.idea/
+*__pycache__/
+
+# Environment
+*.env
