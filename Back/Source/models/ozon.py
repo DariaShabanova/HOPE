@@ -1,7 +1,7 @@
 from Source.models.base import BaseModel
 from sqlalchemy.orm import mapped_column, Mapped  # для создания модели данных - таблицы ещё нет,
 from sqlalchemy import String, ForeignKey  # для того, чтобы задать макс длину
-from datetime import datetime  # тип данных даты в питоне
+from datetime import datetime, date  # тип данных даты в питоне
 
 
 class ItemModel(BaseModel):  # создаём модель данных
@@ -9,9 +9,9 @@ class ItemModel(BaseModel):  # создаём модель данных
     id: Mapped[int] = mapped_column(primary_key=True)
     commission_ratio: Mapped[float] = mapped_column()
     name: Mapped[str] = mapped_column(String(511), nullable=False)
-    offer_id: Mapped[int] = mapped_column(nullable=False)  # может привести к проблемам посмотрим потом если че
+    offer_id: Mapped[str] = mapped_column(nullable=False)  # может привести к проблемам посмотрим потом если че
     seller_price_per_instance: Mapped[float] = mapped_column()
-    created_date: Mapped[datetime] = mapped_column()
+    created_date: Mapped[date] = mapped_column()
 
 
 class DeliveryModel(BaseModel):  # создаём модель данных
